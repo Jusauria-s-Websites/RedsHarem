@@ -1,8 +1,15 @@
+.background-image-full{
+    background-size: cover; 
+    background-position: center; 
+}
 
 .container-fluid{
     background-image: url('../../assets/begin.webp') ;
     box-shadow: 0 0 200px rgb(255, 245, 225) inset;
     @extend .background-image-full !optional;
+    height: 100vh;
+    object-fit: contain;
+    z-index: 0;
 }
 .container-fluid::before{
     content: '';
@@ -10,14 +17,13 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - var(--_scrollbar-height, 0px));;
+    height: 100%;
     background-image: url('../../assets/colorspiral.jpg') ;
     mix-blend-mode: soft-light; 
     filter: blur(30px);
-    overflow: hidden;
 
-    
     @extend .background-image-full !optional;
+    z-index: -3;
 }
 .container-fluid::after{
     content: '';
@@ -25,38 +31,52 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - var(--_scrollbar-height, 0px));;
-    background-image: url('../../assets/starBorder.png') ;
+    height: 100%;
+    //background-image: url('../../assets/starBorder.png') ;
     mix-blend-mode: color-dodge; 
-    opacity: 0.5;
+    opacity: 0.8;
     @extend .background-image-full !optional;
-    overflow: hidden;
-
+    animation: backgroundAnimation 4s infinite;
+    z-index: -2;
 }
 .position-absolute.middle::after {
     content: '';
     position: absolute;
-    top: -55px;
-    left: 9px;
+    top: -50px;
     width: 100vw;
-    height: calc(78vh - var(--_scrollbar-height, 0px));;
+    height:78%;
     background: #ffffff;
     filter: blur(27px);
     opacity: 0.8;
     z-index: -1;
-    overflow: hidden;
-
 }
 .position-absolute.middle .row{
     margin-bottom: 8em;
 }
 .middle {
-    top: 49% !important;
-    left: 30%;
-    transform: translate(-20%, -50%) !important;
+    top: 18% !important;
+    width: 100vw;
 }
 h1,h3{
-    color: #d6ba23;
-    text-shadow: #fff914 1px 1px 0px;
+    color: #bca737 !important;
+    text-shadow: #fdfbc5 3px 1px 0px;
+}
+.row h1{
+    font-size: 4.5em;
 }
 
+button{
+    font-size: x-large;
+}
+// ---- Animation ----
+$background-images: (
+  url('../../assets/starBorder.png'),
+  url('../../assets/starBorder2.png')
+);
+
+// Loop through the background images and set the animation
+@keyframes backgroundAnimation {
+  0% { background-image: nth($background-images, 1); }
+  50% { background-image: nth($background-images, 2); }
+  100% { background-image: nth($background-images, 1); }
+}
