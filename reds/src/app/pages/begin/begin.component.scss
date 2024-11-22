@@ -1,13 +1,9 @@
-.background-image-full{
-    background-size: cover; 
-    background-position: center; 
-}
+@import '../../shared/shared.scss';
 
 .container-fluid{
     background-image: url('../../assets/begin.webp') ;
     box-shadow: 0 0 200px rgb(255, 245, 225) inset;
     @extend .background-image-full !optional;
-    height: 100vh;
     object-fit: contain;
     z-index: 0;
 }
@@ -32,7 +28,6 @@
     left: 0;
     width: 100vw;
     height: 100%;
-    //background-image: url('../../assets/starBorder.png') ;
     mix-blend-mode: color-dodge; 
     opacity: 0.8;
     @extend .background-image-full !optional;
@@ -53,14 +48,8 @@
 .position-absolute.middle .row{
     margin-bottom: 8em;
 }
-.middle {
-    top: 18% !important;
-    width: 100vw;
-}
-h1,h3{
-    color: #bca737 !important;
-    text-shadow: #fdfbc5 3px 1px 0px;
-}
+
+
 .row h1{
     font-size: 4.5em;
 }

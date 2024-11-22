@@ -8,13 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './begin.component.html',
   styleUrls: ['./begin.component.scss', '../../../styles.scss']
 })
-export class BeginComponent implements AfterViewInit {
+export class BeginComponent {
   private router = inject(Router);
 goToHallway() {
   this.router.navigate(['hallway']);
 }
-  ngAfterViewInit(): void {
-    console.log(window.innerHeight); // Viewport height excluding bars
-console.log(document.documentElement.clientHeight);
-  }
+
 }
