@@ -1,0 +1,10 @@
+<main class="main">
+  <header>
+  </header>
+  @if (isLoading) {
+    <app-loading></app-loading>
+  }
+  @else{
+    <router-outlet></router-outlet>
+  }
+</main>

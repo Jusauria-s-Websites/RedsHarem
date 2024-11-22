@@ -1,0 +1,64 @@
+@import '../../../styles.scss';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.container-fluid{
+    background-image: url('../../assets/begin.webp') ;
+    box-shadow: 0 0 200px rgb(255, 245, 225) inset;
+    @extend .background-image-full !optional;
+}
+.container-fluid::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--_scrollbar-height, 0px));;
+    background-image: url('../../assets/colorspiral.jpg') ;
+    mix-blend-mode: soft-light; 
+    filter: blur(30px);
+    overflow: hidden;
+
+    
+    @extend .background-image-full !optional;
+}
+.container-fluid::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--_scrollbar-height, 0px));;
+    background-image: url('../../assets/starBorder.png') ;
+    mix-blend-mode: color-dodge; 
+    opacity: 0.5;
+    @extend .background-image-full !optional;
+    overflow: hidden;
+
+}
+.position-absolute.middle::after {
+    content: '';
+    position: absolute;
+    top: -55px;
+    left: 9px;
+    width: 100vw;
+    height: calc(78vh - var(--_scrollbar-height, 0px));;
+    background: #ffffff;
+    filter: blur(27px);
+    opacity: 0.8;
+    z-index: -1;
+    overflow: hidden;
+
+}
+.position-absolute.middle .row{
+    margin-bottom: 8em;
+}
+.middle {
+    top: 49% !important;
+    left: 30%;
+    transform: translate(-20%, -50%) !important;
+}
+h1,h3{
+    color: #d6ba23;
+    text-shadow: #fff914 1px 1px 0px;
+}
+
