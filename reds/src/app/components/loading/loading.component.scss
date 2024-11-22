@@ -1,0 +1,85 @@
+@import '../../shared/shared.scss';
+
+.container-fluid{
+    background-image: url('../../assets/loading.webp') ;
+    box-shadow: 0 0 20px rgb(255, 245, 225) inset;
+    @extend .background-image-full !optional;
+    object-fit: contain;
+    z-index: 0;
+}
+
+
+.walkAnimation {
+  
+  width: 120px;
+  height: 200px;
+  position: relative;
+  top: 30%;
+  right: -18vh;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &.spaniel::after {
+    @extend .background-image-full !optional;
+    animation: spanielWalk 1s steps(1) infinite;
+  }
+
+  &.floppy::after {
+    @extend .background-image-full !optional;
+    animation: floppyWalk 1s steps(1) infinite;
+  }
+}
+
+// ---- Animation ----
+.loading-animation {
+    .text {
+      margin-right: 0.2em; // Space between "Loading" and dots
+    }
+  
+    .dot {
+      animation: jump 1.5s ease-in-out infinite;
+      display: inline-block;
+    }
+  
+    // Staggered delays for dots
+    .dot:nth-child(2) { animation-delay: 0s; }
+    .dot:nth-child(3) { animation-delay: 0.2s; }
+    .dot:nth-child(4) { animation-delay: 0.4s; }
+  }
+  
+  @keyframes jump {
+    0%, 100% {
+      transform: translateY(0); // Dots at the baseline
+    }
+    50% {
+      transform: translateY(-10px); // Dots jump up
+    }
+  }
+  $spaniel-images: (
+    url('../../assets/loadingWalk/1.png'),
+    url('../../assets/loadingWalk/2.png')
+  );
+  $floppy-images: (
+      url('../../assets/loadingWalk/3.png'),
+      url('../../assets/loadingWalk/4.png')
+  );
+  
+  @keyframes spanielWalk {
+    0% { background-image: nth($spaniel-images, 1); }
+    50% { background-image: nth($spaniel-images, 2); }
+    100% { background-image: nth($spaniel-images, 1); }
+  }
+  
+  @keyframes floppyWalk {
+      0% { background-image: nth($floppy-images, 1); }
+      50% { background-image: nth($floppy-images, 2); }
+      100% { background-image: nth($floppy-images, 1); }
+  }

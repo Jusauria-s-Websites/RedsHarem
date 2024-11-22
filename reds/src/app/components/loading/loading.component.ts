@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
   standalone: true,
   imports: [],
   templateUrl: './loading.component.html',
-  styleUrl: './loading.component.scss'
+  styleUrls: ['./loading.component.scss'],
 })
-export class LoadingComponent {
+export class LoadingComponent implements OnInit {
+  dogGirl: string ="";
 
+  ngOnInit(): void {
+    // Randomly choose a drawing to animate
+    this.dogGirl=  Math.random() < 0.5 ? 'spaniel' : 'floppy';
+    
+  }
 }

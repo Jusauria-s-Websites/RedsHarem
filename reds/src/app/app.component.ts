@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { LoadingComponent } from "./components/loading/loading.component";
-import { delay, of, switchMap } from 'rxjs';
+import { delay, of, switchMap, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,12 @@ import { delay, of, switchMap } from 'rxjs';
 })
 export class AppComponent {
   title = 'Reds Harem';
-
+  
   isLoading = false;
   private navigationCompleted = false;
-
+  playAnimation=false;
+  showComponent =false
+  
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
@@ -32,7 +34,14 @@ export class AppComponent {
           })
         ).subscribe(() => {
           if (this.navigationCompleted) {
-            this.isLoading = false;
+            this.playAnimation=true;
+            setTimeout(()=>{
+              this.showComponent=true;
+              setTimeout(()=>{
+                this.playAnimation=false;
+                this.isLoading = false;
+              },1000)
+            },200)
           }
         });
       }

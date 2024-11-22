@@ -2,9 +2,10 @@
   <header>
   </header>
   @if (isLoading) {
-    <app-loading></app-loading>
+    <app-loading class="vh-100 w-100" [ngClass]="{'animate__animated animate__fadeOut': playAnimation}" ></app-loading>
   }
-  @else{
+  @if (showComponent) {
     <router-outlet></router-outlet>
   }
+  
 </main>
