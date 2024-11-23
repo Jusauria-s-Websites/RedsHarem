@@ -10,18 +10,26 @@
 
 .walkAnimation {
   
-  width: 120px;
-  height: 200px;
+  width: 100vw;
+  height: 150px;
   position: relative;
-  top: 30%;
-  right: -18vh;
+  top: 35%;
+  
 
   &.spaniel::after {
+    width: 80px;
+    left: 50%; /* Align horizontally to the center */
+    top: 50%; /* Align vertically to the center */
+    transform: translate(-50%, -50%);
     @extend .pseudo-images !optional;
     animation: spanielWalk 1s steps(1) infinite;
   }
 
   &.floppy::after {
+    width: 80px;
+    left: 50%; /* Align horizontally to the center */
+    top: 50%; /* Align vertically to the center */
+    transform: translate(-50%, -50%);
     @extend .pseudo-images !optional;
     animation: floppyWalk 1s steps(1) infinite;
   }
