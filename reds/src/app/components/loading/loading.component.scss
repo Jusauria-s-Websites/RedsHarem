@@ -4,7 +4,6 @@
     background-image: url('../../assets/loading.webp') ;
     box-shadow: 0 0 20px rgb(255, 245, 225) inset;
     @extend .background-image-full !optional;
-    object-fit: contain;
     z-index: 0;
 }
 
@@ -17,23 +16,13 @@
   top: 30%;
   right: -18vh;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
   &.spaniel::after {
-    @extend .background-image-full !optional;
+    @extend .pseudo-images !optional;
     animation: spanielWalk 1s steps(1) infinite;
   }
 
   &.floppy::after {
-    @extend .background-image-full !optional;
+    @extend .pseudo-images !optional;
     animation: floppyWalk 1s steps(1) infinite;
   }
 }

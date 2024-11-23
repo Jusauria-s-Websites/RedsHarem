@@ -1,6 +1,18 @@
 .background-image-full{
     background-size: cover; 
     background-position: center; 
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+
+    object-fit: contain;
+}
+.pseudo-images{
+    @extend .background-image-full;
+    content: '';
 }
 .middle {
     top: 18% !important;

@@ -4,39 +4,25 @@
     background-image: url('../../assets/begin.webp') ;
     box-shadow: 0 0 200px rgb(255, 245, 225) inset;
     @extend .background-image-full !optional;
-    object-fit: contain;
     z-index: 0;
 }
 .container-fluid::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
     background-image: url('../../assets/colorspiral.jpg') ;
     mix-blend-mode: soft-light; 
     filter: blur(30px);
 
-    @extend .background-image-full !optional;
+    @extend .pseudo-images !optional;
     z-index: -3;
 }
 .container-fluid::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
     mix-blend-mode: color-dodge; 
     opacity: 0.8;
-    @extend .background-image-full !optional;
+    @extend .pseudo-images !optional;
     animation: backgroundAnimation 4s infinite;
     z-index: -2;
 }
 .position-absolute.middle::after {
-    content: '';
-    position: absolute;
+    @extend .pseudo-images !optional;
     top: -50px;
     width: 100vw;
     height:78%;
